@@ -95,17 +95,37 @@ manipulados pela função, além de melhorar as mensagens de erro quando ocorrem
 
 
 function verificaNegativo($valor):string{
+        /* Early return 
+        (é possível emitir o else neste caso) */
     if($valor < 0){
         return "é negativo";
-        else{
+    }    else{
             return "não é negativo";
         }
+
+        // código abaixo da problema
+        /* <p> Número 50: <?=verificanegativo("TEXTO")?></P> */
     }
-}
 ?>
+
+
 
 <p>Número 10: <?=verificaNegativo(10)?></p>
 <p>Número -10: <?=verificaNegativo(-10)?></p>
+
+<hr>
+<h2>Função anônima (ou closure, lambda)</h2>
+
+<?php
+$formataPreco = function (float $valor){
+    $precoFormatado = "R$".number_format($valor, 2, ",", ".");
+    return $precoFormatado;
+    // obrigatorio usar ;
+}
+
+?>
+
+<p>1000 formatado fica: <?=$formataPreco(1000)?> </p>
 
 </body>
 </html>
