@@ -29,7 +29,18 @@ function dadosAutor(){
         <?=dadosAutor()?>
     </article>
 </section>
+<hr>
 
+
+<h2>Função com retorno e dados</h2>
+<?php
+function dadosCurso(){
+    return "Técnico em Informática para Internet";
+}
+?>
+
+<p>Estamos no curso de <?=dadosCurso()?></p>
+<p><?=dadosCurso()?> é ministrado no Senac Penha</p>
 
 </body>
 </html>
