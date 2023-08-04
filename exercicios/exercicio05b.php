@@ -62,7 +62,7 @@ foreach ($alunos as $aluno => $dados){
     $media = calMedia($notas);
     $situacao = situacao($media);
 
-echo "<p>Aluno $nome: Média = $media - Situação: $situacao </p>";
+echo "<p>Aluno $nome - Média = $media - Situação: $situacao </p>";
 
 
 }
