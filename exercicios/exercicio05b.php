@@ -20,9 +20,9 @@ function calMedia ($notas){
 
 function situacao ($media){
     if ($media >= 7){
-    return '<div class="aprovado"> você foi aprovado</div>';
+    return '<b class="aprovado"> você foi aprovado</b>';
 } else {
-    return '<div class="reprovado"> você foi reprovado</div>';
+    return '<b class="reprovado"> você foi reprovado</b>';
 };
 }
 
@@ -36,8 +36,10 @@ $alunos = array (
         "notas" => array (5, 7)
     ),
 
-    array ('aluno' => "Vanessa ",
-    "notas" => array (7, 9)),
+    array (
+        'aluno' => "Vanessa ",
+        "notas" => array (7, 9)
+    ),
     
     array ('aluno' => "Larissa ",
     "notas" => array (10, 8)),
@@ -54,15 +56,14 @@ $alunos = array (
 
 <?php
 
-foreach ($alunos as $i=> $aluno){
-    $nome = $aluno["aluno"];
-    $notas = $aluno ["notas"]; 
+foreach ($alunos as $aluno => $dados){
+    $nome = $dados["aluno"];
+    $notas = $dados["notas"]; 
     $media = calMedia($notas);
     $situacao = situacao($media);
 
+echo "<p>Aluno $nome: Média = $media - Situação: $situacao </p>";
 
-
-echo "Aluno ". ($i + 1) . ": Média = $media - Situação: $situacao";
 
 }
 ?>
