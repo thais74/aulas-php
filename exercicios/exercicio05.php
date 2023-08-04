@@ -36,17 +36,25 @@ $alunos = array (
         "notas" => array (5, 7)
     ),
 
-    array ('aluno' => "Vanessa ",
-    "notas" => array (7, 9)),
+    array (
+        'aluno' => "Vanessa ",
+        "notas" => array (7, 9)
+),
     
-    array ('aluno' => "Larissa ",
-    "notas" => array (10, 8)),
+    array (
+        'aluno' => "Larissa ",
+        "notas" => array (10, 8)
+),
 
-    array ('aluno' => "Daniel ",
-    "notas" => array (2, 10)),
+    array (
+        'aluno' => "Daniel ",
+        "notas" => array (2, 10)
+),
 
-    array ('aluno' => "Yasmin ",
-    "notas" => array (8, 9)),
+    array (
+        'aluno' => "Yasmin ",
+        "notas" => array (8, 9)
+),
 
 );
 
