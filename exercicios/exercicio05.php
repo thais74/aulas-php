@@ -35,16 +35,16 @@ $alunos = array (
     "notas" => array (5, 7)),
 
     array ('aluno' => "Vanessa ",
-    "notas" => array (10, 9)),
+    "notas" => array (7, 9)),
     
     array ('aluno' => "Larissa ",
-    "notas" => array (10, 9)),
+    "notas" => array (10, 8)),
 
     array ('aluno' => "Daniel ",
-    "notas" => array (10, 9)),
+    "notas" => array (2, 10)),
 
     array ('aluno' => "Yasmin ",
-    "notas" => array (10, 9)),
+    "notas" => array (8, 9)),
 
 );
 
@@ -58,9 +58,11 @@ foreach ($alunos as $i=> $aluno){
     $media = calMedia($notas);
     $situacao = situacao($media);
 
-}
+
 
 echo "Aluno ". ($i + 1) . ": Média = $media - Situação: $situacao";
+
+}
 ?>
 
 
