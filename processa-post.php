@@ -11,18 +11,31 @@
     <hr>
     <p>Receber e processar dados via <b>POST</b></p>
 
-<pre><?=var_dump($_POST)?></pre>
+
 
 <?php
-$nome = $_POST["nome"];
-$email= $_POST["email"];
-$mensagem = $_POST["mensagem"];
+
+if(empty ($_POST["nome"]) || empty ($_POST["email"]) ){
+?>
+    <p> Você deve preencher nome e e-mail!</p>;
+    <p> <a href="10-formulario.html"> Voltar</a></p>;
+  
+<?php  
+} else {
+    $nome = $_POST["nome"];
+    $email= $_POST["email"];
+    $mensagem = $_POST["mensagem"];
+
 ?>
     <h2>Dados</h2>
     <ul>
-        <li>Nome: </li>
-        <li>Email: </li>
-        <li>Mensagem: </li>
+        <li>Nome: <?=$nome?></li>
+        <li>Email: <?=$email?></li>
+        <li>Mensagem: <?=$mensagem?></li>
     </ul>
+
+<?php
+}
+?>    
 </body>
 </html>
