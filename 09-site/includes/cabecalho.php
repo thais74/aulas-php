@@ -8,7 +8,7 @@ $titulo = match($pagina){
     "index.php" => "Página Inicial",
     "cursos.php" => "Cursos",
     "duvidas.php" => "Dúvidas",
-    default => "Contato"
+    default3,3 => "Contato"
 }
 ?>
 
