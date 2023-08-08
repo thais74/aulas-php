@@ -1,18 +1,18 @@
 </main>
     <body>
         
-    <footer>
-        <p>Site criado para o curso <b>Téc. Informática para Internet</b></p>
-    </footer>
+    
 
 <?php
 date_default_timezone_set("America/Sao_Paulo");
-$currentdatetime = date("d-m-y");
-$currentHour = date("H:i");
+$currentdatetime = date("d-m-y h:i");
+
 ?>
 
-<p><?=$currentdatetime?></p>
-<p><?=$currentHour?></p> 
+<footer>
+    <p>Site criado para o curso <b>Téc. Informática para Internet <b> - <time> <?=$currentdatetime?></time></b></b></p>
+</footer>
+
 
 </body>
 </html>
