@@ -24,14 +24,36 @@ if(empty ($_POST["nome"]) || empty ($_POST["email"]) ){
 } else {
     $nome = $_POST["nome"];
     $email= $_POST["email"];
+    $idade = $_POST["idade"];
     $mensagem = $_POST["mensagem"];
 
+    /* Se houver interesses (ou seja, foi selecionado pelo menos 1), guarde na variável o $_POST["interesses"].
+    Caso contrário, guarde na variáveç um array vazio. */
+    $interesses = $_POST["interesses"];
+
+if (isset($interesses)){
+?>
+    <p><?=$interesses?></p>
+<?php    
+}
 ?>
     <h2>Dados</h2>
     <ul>
         <li>Nome: <?=$nome?></li>
         <li>Email: <?=$email?></li>
-        <li>Mensagem: <?=$mensagem?></li>
+
+        <li>Idade: <?=$idade?></li>
+
+        <li>Interesses: <?= implode(", ", $interesses)?></li>
+
+        <?php if(!empty($mensagem)){ ?>
+        <li>Mensagem: <?=$mensagem?></li> 
+        <?php }
+        ?>
+
+        
+        
+
     </ul>
 
 <?php
