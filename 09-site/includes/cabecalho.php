@@ -1,3 +1,17 @@
+<?php
+//Recuperar/descobrir qual o nome da página aberta no momento
+$pagina = basename($_SERVER['PHP_SELF']);
+
+// Função match()
+// Disponível a partir do PHP versão 8
+$titulo = match($pagina){
+    "index.php" => "Página Inicial",
+    "cursos.php" => "Cursos",
+    "duvidas.php" => "Dúvidas",
+    default => "Contato"
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
