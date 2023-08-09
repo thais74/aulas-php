@@ -22,20 +22,24 @@ if(empty ($_POST["nome"]) || empty ($_POST["email"]) ){
   
 <?php  
 } else {
-    $nome = $_POST["nome"];
-    $email= $_POST["email"];
-    $idade = $_POST["idade"];
-    $mensagem = $_POST["mensagem"];
+    // $nome = filter_var($_POST["nome], FILTER_SANITIZE_SPECIAL_CHARS);
+    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS);
+
+
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+
+    $idade= filter_input(INPUT_POST, "idade", FILTER_SANITIZE_NUMBER_INT);
+
+    $mensagem = filter_input(INPUT_POST, "mensagem", FILTER_SANITIZE_SPECIAL_CHARS);
 
     /* Se houver interesses (ou seja, foi selecionado pelo menos 1), guarde na variável o $_POST["interesses"].
     Caso contrário, guarde na variáveç um array vazio. */
-    $interesses = $_POST["interesses"];
+    $interesses = filter_var_array(
+        $_POST["interesses"] ?? [],
+        FILTER_SANITIZE_SPECIAL_CHARS
+    );
 
-if (isset($interesses)){
-?>
-    <p><?=$interesses?></p>
-<?php    
-}
+
 ?>
     <h2>Dados</h2>
     <ul>
@@ -44,7 +48,16 @@ if (isset($interesses)){
 
         <li>Idade: <?=$idade?></li>
 
-        <li>Interesses: <?= implode(", ", $interesses)?></li>
+        <li>Interesses: <?=empty($interesses) ? "Nenhum item selecionado?" : implode(", ", $interesses)?></li>
+
+        <li>Interesses: 
+            <ul>
+                <?php foreach($interesses as $interesse) { ?>
+                    <li><?=$interesse?></li>
+                <?php } ?>
+            </ul>
+        </li>
+
 
         <?php if(!empty($mensagem)){ ?>
         <li>Mensagem: <?=$mensagem?></li> 
