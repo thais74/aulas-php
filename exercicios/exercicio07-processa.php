@@ -1,4 +1,16 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+
+    <?php
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém os valores dos campos do formulário
@@ -16,21 +28,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = filter_var($descricao, FILTER_SANITIZE_STRING);
 
     // Validação dos campos obrigatórios
-    if (empty($nome) || empty($preco)) {
-        echo "Por favor, preencha todos os campos obrigatórios.";
-    } else {
-        // Processa os dados (por exemplo, salvar em um banco de dados)
-        echo "Produto cadastrado com sucesso!";
-        echo "<br>";
-        echo "Nome: " . $nome;
-        echo "<br>";
-        echo "Fabricante: " . $fabricante;
-        echo "<br>";
-        echo "Preço: " . $preco;
-        echo "<br>";
-        echo "Disponibilidade: " . $disponibilidade;
-        echo "<br>";
-        echo "Descrição: " . $descricao;
+    if (empty($nome) || empty($preco)) { ?>
+        <p>"Por favor, preencha todos os campos obrigatórios."</p> <?php
+    } else { ?>
+        <div class="container mt-5">
+           <div class="container-sm">
+                <div  class="alert alert-success" role="alert">
+                     <h2>Informações cadastradas:</h2>
+                </div>
+
+                <p> Produto cadastrado com sucesso!  </p>
+                <p> Nome: <?=$nome?> </p>
+                <p> Fabricante:  <?=$fabricante?> </p>
+                <p> Preço:  <?=$preco?> </p>
+                <p> Disponibilidade: <?=$disponibilidade?> </p>
+                <p> Descrição: <?=$descricao?> </p>
+                </div> 
+        </div>
+        
+        
+        <?php
     }
 }
 ?>
+
+</body>
+</html>
