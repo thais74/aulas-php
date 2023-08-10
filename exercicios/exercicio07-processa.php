@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = filter_var($nome, FILTER_SANITIZE_STRING);
     $fabricante = filter_var($fabricante, FILTER_SANITIZE_STRING);
     $preco = filter_var($preco, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    $precoBRL = $preco;
     $disponibilidade = filter_var($disponibilidade, FILTER_SANITIZE_STRING);
     $descricao = filter_var($descricao, FILTER_SANITIZE_STRING);
 
@@ -34,13 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container mt-5">
            <div class="container-sm">
                 <div  class="alert alert-success" role="alert">
-                     <h2>Informações cadastradas:</h2>
+                     <h2> Produto cadastrado com sucesso!  </h2>
                 </div>
 
-                <p> Produto cadastrado com sucesso!  </p>
                 <p> Nome: <?=$nome?> </p>
                 <p> Fabricante:  <?=$fabricante?> </p>
-                <p> Preço:  <?=$preco?> </p>
+                <p> Preço:  <?= 'R$' .number_format($precoBRL, 2, ",", ".")?> </p>
                 <p> Disponibilidade: <?=$disponibilidade?> </p>
                 <p> Descrição: <?=$descricao?> </p>
                 </div> 

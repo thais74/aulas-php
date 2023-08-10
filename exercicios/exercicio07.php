@@ -45,11 +45,12 @@
         </div>
 
 
-        <div class="col-md-6">
-            <p>
-                <label class="form-label" for="">Preço:</label>
-                <input class="form-control" type="number" id="preco" name="preco" min="100" max="10000" step="0.01" required>
-            </p>
+        <div class="col-mb-6">
+            <label class="form-label" for="">Preço:</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">R$</span>
+                <input aria-describedby="basic-addon3 basic-addon4" class="form-control" type="number" id="preco" name="preco" min="100" max="10000" step="0.01" required>
+            </div>
         </div>
         
 
