@@ -8,21 +8,38 @@
 </head>
 <body>
 
+<!-- Script deve ficar no final da página, pouco antes do </body> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+
+<!-- Podia ter pelo menos um <h1> aqui -->
 
     <?php
 // Verifica se o formulário foi enviado
+/* Essa verificação está correta, mas é desnecessária.
+Afinal, você já tinha definido o action do seu formulário. */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém os valores dos campos do formulário
     $nome = $_POST["nome"];
     $fabricante = $_POST["fabricante"];
+
+    /* Esse ternário está correto, mas poderia ser simplificado usando ?? */
     $preco = isset($_POST["preco"]) ? $_POST["preco"] : ""; // Check if "preco" exists, assign empty string if not
     $disponibilidade = isset($_POST["disponibilidade"]) ? $_POST["disponibilidade"] : ""; // Check if "disponibilidade" exists, assign empty string if not
     $descricao = $_POST["descricao"];
 
     // Sanitiza os dados utilizando filtros
+
+    /* Pelo que entendi, primeiro você capturou os dados (variáveis acima)
+    e depois reatribuiu valores à elas com sanitização, certo?
+    É uma forma válida, embora não muito comum (afinal, dá pra fazer de uma vez só).
+    
+    Quanto as sanitizações, o FILTER_SANITIZE_STRING foi descontinuado.
+    O ideal é usar o SPECIAL_CHARS. */
+
     $nome = filter_var($nome, FILTER_SANITIZE_STRING);
     $fabricante = filter_var($fabricante, FILTER_SANITIZE_STRING);
+
+    /* Esta sanitização está certinha. */
     $preco = filter_var($preco, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $precoBRL = $preco;
     $disponibilidade = filter_var($disponibilidade, FILTER_SANITIZE_STRING);
