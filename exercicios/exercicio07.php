@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio 07</title>
+    <!-- Bom uso do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+    <!-- Script sempre no final da página -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>  
 
 
@@ -32,6 +34,8 @@
     
         <label class="form-label"> Fabricante: </label>
         <select class="form-select" aria-label="Default select example" id="fabricante" name="fabricante">
+
+        <!-- PHP está correto, mas é bom deixar um <option> vazio antes -->
             <?php
         // Array com os nomes dos fabricantes
         $fabricantes = array("Fabricante A", "Fabricante B", "Fabricante C", "Fabricante D");
